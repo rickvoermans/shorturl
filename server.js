@@ -19,7 +19,7 @@ app.use('/home', express.static('src/templates/'));
 app.use(express.json())
 app.use(morgan('tiny'));
 app.use(helmet());
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Initialize routes:
 app.use('/urls', urlRoutes)
