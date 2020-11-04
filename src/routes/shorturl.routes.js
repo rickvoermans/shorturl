@@ -14,10 +14,14 @@ router.get('/', (req, res, next) => {
 });
 
 // Get specific shorturl and redirect to page:
-router.get('/:id', (req, res, next) => {
-    ShortUrl.findOne({ slug: req.params.id })
-        .then((url) => {
-            res.redirect(url.url);
+router.get('/:slug', (req, res, next) => {
+    ShortUrl.findOne({ slug: req.params.slug }).exec()
+        .then((obj) => {
+            if (obj.url.startsWith('http://')) {
+                res.redirect(obj.url);
+            }
+
+            res.redirect(`http://${obj.url}`);
         })
         .catch((error) => {
             next(error);

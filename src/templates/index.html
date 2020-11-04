@@ -29,12 +29,14 @@
       <v-main>
         <template>
             <v-form ref="form" lazy-validation v-model="valid" class="url-form">
+                <h1>Shorten your large url's here:</h1>
+                <br>
                 <v-text-field
                     v-model="url"
                     :rules="urlRules"
                     name="url"
                     label="Url *"
-                    placeholder="www.youtube.com"
+                    placeholder="https://www.youtube.com"
                     required
                     outlined
                     clearable

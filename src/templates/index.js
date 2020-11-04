@@ -51,9 +51,12 @@ const submitForm = (url, slug) => {
     .then(res => {
         if (res.status === 200) {
             res.text().then((data) => {
-                newData = JSON.parse(data);
-                formData.text = `Link succesfull created: ${baseUrl + '/' + JSON.parse(data).slug}`;
+                slug_url = `${baseUrl}/urls/${JSON.parse(data).slug}`;
+                formData.text = `Link succesfull created: ${slug_url}`;
                 formData.success();
+
+                // Copy to clipboard:
+                navigator.clipboard.writeText(slug_url);
             });    
         } else {
             formData.text = `Something went wrong... ${res.status}`
