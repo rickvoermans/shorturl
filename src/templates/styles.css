@@ -1,6 +1,8 @@
 .url-form {
+    position: relative;
     padding: 20px;
     margin: auto;
-    width: 50%;
+    width: 40%;
+    top: 25%;
     align-self: center;
 }
