@@ -1,0 +1,25 @@
+{
+  "name": "shorturls",
+  "version": "1.0.0",
+  "description": "An Express app for shortening urls",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rick Voermans",
+  "license": "ISC",
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.12.1",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "mongoose": "^5.10.11",
+    "nanoid": "^3.1.16"
+  }
+}

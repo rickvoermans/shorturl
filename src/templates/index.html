@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+        <v-app-bar 
+            dense
+            dark
+            app 
+            elevate-on-scroll
+            color="green">
+            <v-spacer></v-spacer>
+
+            <v-toolbar-title>UrlShortener</v-toolbar-title>
+
+            <v-spacer></v-spacer>
+
+            <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+            </v-btn>
+        </v-app-bar>  
+      <v-main>
+        <template>
+            <v-form ref="form" lazy-validation class="url-form">
+                <v-text-field
+                    v-model="url"
+                    :rules="urlRules"
+                    name="url"
+                    label="Url"
+                    placeholder="www.youtube.com"
+                    required
+                    outlined
+                    clearable
+                ></v-text-field>
+                <v-text-field
+                    v-model="slug"
+                    :rules="slugRules"
+                    name="slug"
+                    label="Slug"
+                    placeholder="xT3vv1"
+                    outlined
+                    clearable
+                ></v-text-field>
+                <v-btn  
+                    rounded 
+                    color="primary" 
+                    dark
+                    v-on:click="submit"
+                    >submit url</v-btn>
+            </v-form>
+        </template>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="index.js" defer></script>
+</body>
+</html>
