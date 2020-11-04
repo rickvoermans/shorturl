@@ -10,10 +10,7 @@ const errorHandler = require('./src/middleware/error-handler');
 const notFound = require('./src/middleware/not-found'); 
 const urlRoutes = require('./src/routes/shorturl.routes');
 const mongoConnection = require('./src/env/mongo.db');
-
-// Variables from dotenv:
-const port = process.env.PORT;
-const hostname = process.env.HOSTNAME;
+const { env,  corsOptions} = require('./src/env/env');
 
 // Homepage react-app:
 app.use('/home', express.static('src/templates/'));
@@ -22,9 +19,7 @@ app.use('/home', express.static('src/templates/'));
 app.use(express.json())
 app.use(morgan('tiny'));
 app.use(helmet());
-app.use(cors({
-    origin: 'localhost:3000'
-}));
+app.use(cors());
 
 // Initialize routes:
 app.use('/urls', urlRoutes)
@@ -38,6 +33,6 @@ app.use(notFound);
 app.use(errorHandler);
 
 // Start API:
-app.listen(port, () => {
-    console.log(`App listening on ${port}, visit http://${hostname}:${port}/home`);
+app.listen(env.webPort, () => {
+    console.log(`App listening on ${env.webPort}, visit ${env.webUrl}/home`);
 });

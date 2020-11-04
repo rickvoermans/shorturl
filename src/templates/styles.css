@@ -1,4 +1,6 @@
 .url-form {
     padding: 20px;
-    margin: 20px;
+    margin: auto;
+    width: 50%;
+    align-self: center;
 }

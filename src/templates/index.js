@@ -23,15 +23,18 @@ const form = new Vue({
 })
 
 const submitForm = (url, slug) => {
-    fetch('http://localhost:1337/urls', {
+    let body = JSON.stringify({url, slug})
+
+    if (slug.trim() === '') {
+        body = JSON.stringify({url})
+    }
+
+    fetch('http://localhost:1337/urls/', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: {
-            slug: slug,
-            url: url
-        }
+        body: body
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))

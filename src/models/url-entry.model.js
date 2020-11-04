@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const requiredString = {
-    type: String,
-    required: true
-};
-
 const ShortUrlSchema = new Schema({
-    slug: requiredString,
-    url: requiredString,
+    slug: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    url: {
+        type: String,
+        required: true
+    },
     clicked: Number
 }, {
     timestamps: true

@@ -1,6 +1,8 @@
 const errorHandler = (error, req, res, next) => {
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
 
+    console.log(error.stack);
+
     res.status(statusCode).json({
         date: Date.now(),
         url: req.originalUrl,
